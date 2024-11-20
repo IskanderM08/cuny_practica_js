@@ -5,11 +5,44 @@
 <body>
 <h2> Cuotas de Pago Semestral UV </h2>
 <script type = "text/javascript">
-var nombreCompleto, semestreEstudiante, creditosEstudiante;
+var nombreCompleto, semestreEstudiante, creditosEstudiante, pagoCreditos;
 nombreCompleto = prompt("Ingrese su nombre completo: ","Nombre Completo");
 semestreEstudiante = prompt("Ingrese su semestre: ","101, 301, 501, 701");
 creditosEstudiante = prompt("Ingrese el número de créditos del semestre",0);
-alert ("La propina es de: $"+creditosEstudiante*.16);
+pagoCreditos = (calcularPagoCreditos(creditosEstudiante));
+totalPago = (calcularPagoTotal(pagoCreditos, semestreEstudiante));
+
+function calcularPagoTotal(pagoCreditos, semestreEstudiante){
+    var totalPago;
+    switch(semestreEstudiante){
+        case 101:
+            totalPago = pagoCreditos + 50;
+            break;
+        case 301:
+            totalPago = pagoCreditos + 75;
+            break;
+        case 501:
+            totalPago = pagoCreditos + 100;
+            break;
+        case 701:
+            totalPago = pagoCreditos + 100;
+            break;
+
+        return totalPago;
+    }
+}
+
+function calcularPagoCreditos(creditosEstudiante){
+    var pagoCreditos;
+
+    if(creditosEstudiante>12){
+        creditosEstudiante = 12;
+    }
+
+    return pagoCreditos = creditosEstudiante * 360;
+}
+
+alert ("El estudiante "+ nombreCompleto + " tiene que realizar un pago total de: $"+totalPago);
 </script>
 </body>
 </html>
