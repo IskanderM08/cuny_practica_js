@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visualizar Optativas - Iskander Emilio Mercader Olivares</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function seleccionarOptativa(numeroSemestre) {
+            const listaOptativas = {
+                "601": [
+                    "Bases de Datos no Convencionales",
+                    "Diseño de Interfaces de Usuario",
+                    "Proyectos de Software",
+                    "Sistemas Operativos Móviles",
+                ],
+                "701": [
+                    "Administración de Bases de Datos",
+                    "Programación Multinúcleo",
+                    "Medición de Software",
+                    "Administración Avanzada de Servicios",
+                ],
+                "801": [
+                    "Reingeniería de Software",
+                    "Pruebas de Penetración",
+                    "Programación Segura",
+                    "Inteligencia Artificial",
+                ],
+            };
+
+            const optativaRandom = Math.floor(Math.random() * listaOptativas[numeroSemestre].length);
+            document.getElementById("cajaOptativa").value = listaOptativas[numeroSemestre][optativaRandom];
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Visualice las optativas que oferta LIS</h1>
+    <p>Selecciona el semestre y aleatoriamente aparecerá una optativa ofertada para dicho período.</p>
+
+    <table>
+        <tr>
+            <td><button onclick="seleccionarOptativa('601')">601</button></td>
+            <td><button onclick="seleccionarOptativa('701')">701</button></td>
+            <td><button onclick="seleccionarOptativa('801')">801</button></td>
+        </tr>
+    </table>
+
+    <input type="text" id="cajaOptativa" placeholder="La optativa aparecerá aquí">
+
+</body>
+
+</html>
